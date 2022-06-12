@@ -24,7 +24,7 @@ files_length = len(files) - 1
 currentfiles_path = os.path.dirname(os.path.abspath(__file__))+"\\"
 # Dynamic path (Creates the folder wherever you run the script)
 path_tomove = os.path.dirname(os.path.abspath(__file__))+"\\"+ "Work"+"\\"
-# Static Path 
+# Static Path - can add your custom path, where all the files will be moved to
 # path_tomove = "C:\\Users\\path\\to\\moveto\\"
 #
 
