@@ -8,7 +8,7 @@ This helps de-clutter the folders by setting folders with the date. This helps o
 
 Forg can run as a scheduled task or manually. 
 
-Command: python3 forg.py all (for all files to be moved automatically) or python3 forg.py <filename with extension> <filename2 with extension> ... (for specific files) 
+Command: python3 forg.py all (for all files to be moved automatically) or python3 forg.py filename1.png filename2.pdf ... (for specific files) 
   
 This has the option to remove duplicate files, if it detects any. To enable this, uncomment lines 95 and 115. 
   
