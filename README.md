@@ -16,10 +16,10 @@ Forg can run as a scheduled task or manually. Example: Task Scheduler in Windows
 Steps:
 1. Create a Task and name it acordingly
 2. Set the Schedule to run once a day (at a certain time) 
-3. Actions - Set the action to "Start a program"
-3.1. For the Script, browse for the python executable
-3.2. Arguments - Set it to "forg all" 
-3.3. Start in - Set it to the path where the forg.py script resides (Generally, Downloads)
+3. Actions - Set the action to "Start a program"     
+3.1. For the Script, browse for the python executable   
+3.2. Arguments - Set it to "forg all"         
+3.3. Start in - Set it to the path where the forg.py script resides (Generally, Downloads)              
 4. In General, set the task to run only when the user is logged in
 
 Thank you!
