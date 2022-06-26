@@ -73,42 +73,48 @@ def fileExists(movingpath, inputpath, allinput):
 # Checks if an input was given ( All or the files to be moved )
 if files_length > 0:
 
-    # Creates a folder
-    createfolder()
-
     # If the all parameter is given, it will move all files in the current path 
     if files[1] == "all":
 
         # Checks the files in the current path and adds the name into an array
         files = glob.glob(str(currentfiles_path)+"*")
         files_length = len(files)-1
+        
+        if len(files)>2:   
+            
+            # Creates a folder
+            createfolder()
 
-        print("All files in the current directory will be moved."+"\nFiles Found: "+str(files_length))
-        # While loop that runs until no more input is available in the array. (Omits the script) 
+            print("All files in the current directory will be moved."+"\nFiles Found: "+str(files_length))
+            # While loop that runs until no more input is available in the array. (Omits the script) 
 
-        while files_length >= 0:
-            # Ignores files in a folder (In this case, forg script and the "Work" folder we created) - If more files need to be ignored, they can be added using the same syntax
-            if files[files_length] != str(currentfiles_path)+"forg.py" and files[files_length] != str(currentfiles_path)+"Work":
-                # Checks if the files exist in the path given (folder with date)
-                if fileExists(path_tomove+str(date())+"\\",str(files[files_length]),True)==False:
-                    try:
-                        # Moves the file to the location
-                        shutil.move(files[files_length], str(path_tomove+str(date())))
-                    except:
-                        # If the previous step fails, this will show what file could not be moved. 
-                        # This can happen if the location is non-existant/reachable/script does not have the right permissions
-                        print("File: "+ str(files[files_length])+" could not be moved.")
-                        pass
-                else:
-                    try:
-                        # If the file already exists at the location, a message is displayed. The line below can remove the duplicates. 
-                        print("File: "+ str(files[files_length])+" already exists at the location.")
-                        #os.remove(files[files_length])
-                    except: 
-                        pass
-            files_length -=1
-
+            while files_length >= 0:
+                # Ignores files in a folder (In this case, forg script and the "Work" folder we created) - If more files need to be ignored, they can be added using the same syntax
+                if files[files_length] != str(currentfiles_path)+"forg.py" and files[files_length] != str(currentfiles_path)+"Work":
+                    # Checks if the files exist in the path given (folder with date)
+                    if fileExists(path_tomove+str(date())+"\\",str(files[files_length]),True)==False:
+                        try:
+                            # Moves the file to the location
+                            shutil.move(files[files_length], str(path_tomove+str(date())))
+                        except:
+                            # If the previous step fails, this will show what file could not be moved. 
+                            # This can happen if the location is non-existant/reachable/script does not have the right permissions
+                            print("File: "+ str(files[files_length])+" could not be moved.")
+                            pass
+                    else:
+                        try:
+                            # If the file already exists at the location, a message is displayed. The line below can remove the duplicates. 
+                            print("File: "+ str(files[files_length])+" already exists at the location.")
+                            #os.remove(files[files_length])
+                        except: 
+                            pass
+                files_length -=1
+        else:
+            print("No new files to move in the current directory.")
     else:
+
+        # Creates a folder
+        createfolder()
 
         # If Inputs are given (i.e. multiple files, it will move them to the given path)
         print("This is how many files will be moved: "+str(files_length))
